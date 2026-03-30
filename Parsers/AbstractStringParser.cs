@@ -6,8 +6,8 @@ namespace KeybindManager
 {
     public abstract class AbstractStringParser : AbstractParser, IOrderToggleableParser
     {
-        private static readonly Dictionary<string, KeyCode> _d = Utils.GetNameValuePairs<KeyCode>();
-        private static readonly Dictionary<string, SpecialKeyType> _sd = Utils.GetNameValuePairs<SpecialKeyType>();
+        private static readonly Dictionary<string, KeyCode> _d = Utils.GetNameValuePairs<KeyCode>().ToDictionary(x => x.Key.ToLowerInvariant(), x => x.Value);
+        private static readonly Dictionary<string, SpecialKeyType> _sd = Utils.GetNameValuePairs<SpecialKeyType>().ToDictionary(x => x.Key.ToLowerInvariant(), x => x.Value);
 
         private bool _ignoreForceOrder;
         public bool IgnoreForceOrder
